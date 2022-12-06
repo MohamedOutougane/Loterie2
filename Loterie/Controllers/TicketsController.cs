@@ -57,7 +57,7 @@ namespace Loterie.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,SessionID,shortGUID,game")] Ticket ticket)
+        public async Task<IActionResult> Create([Bind("Id,SessionID,shortGUID,Game")] Ticket ticket)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace Loterie.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,SessionID,shortGUID,game")] Ticket ticket)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,SessionID,shortGUID,Game")] Ticket ticket)
         {
             if (id != ticket.Id)
             {
