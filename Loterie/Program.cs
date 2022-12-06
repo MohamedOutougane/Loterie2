@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Loterie.Data;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<LoterieContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("LoterieContext") ?? throw new InvalidOperationException("Connection string 'LoterieContext' not found.")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("LoterieContextLocal") ?? throw new InvalidOperationException("Connection string 'LoterieContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
