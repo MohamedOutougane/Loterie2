@@ -1,4 +1,13 @@
-﻿using Loterie.Models;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using Loterie.Data;
+using Loterie.Models;
+using Loterie.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -7,16 +16,26 @@ namespace Loterie.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly LoterieContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, LoterieContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
-        public IActionResult Index()
+        // GET: Sessions
+        public async Task<IActionResult> Index()
         {
-            return View();
+            return _context.Session != null ?
+                        View(await _context.Session.ToListAsync()) :
+                        Problem("Entity set 'LoterieContext.Session'  is null.");
         }
+
+        //public IActionResult Index()
+        //{
+        //    return View();
+        //}
 
         public IActionResult Privacy()
         {

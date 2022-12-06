@@ -1,4 +1,4 @@
-﻿@model List<Loterie.Models.Session>
+﻿@model IEnumerable<Loterie.Models.Session>
 
 @{
     ViewData["Title"] = "Home Page";
@@ -7,15 +7,14 @@
 <main>
     <div class="jackpot-wrapper">
         <div class="jackpot-title">Cagnotte actuelle</div>
-        <div class="jackpot-value">@if (Model != null && Model.Any())
-        {
-            @foreach (var sessions in Model)
+        <div class="jackpot-value">
+            @foreach (var item in Model)
             {
                 <div>
-                    @sessions.Jackpot
+                        @Html.DisplayFor(modelItem => item.Jackpot)
                 </div>
             }
-        }</div>
+        </div>
     </div>
 
     <div class="grid-wrapper">
