@@ -6,7 +6,7 @@ namespace Loterie.Models
     {
         public int Id { get; set; }
         public string? Draw { get; set; }
-        [DataType(DataType.Date)]
+        [DataType(DataType.DateTime)]
         public DateTime Date { get; set; }
         public int Jackpot { get; set; }
 
