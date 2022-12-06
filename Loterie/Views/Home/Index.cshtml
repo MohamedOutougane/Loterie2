@@ -1,8 +1,44 @@
-﻿@{
+﻿@model List<Loterie.Models.Session>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<main>
+    <div class="jackpot-wrapper">
+        <div class="jackpot-title">Cagnotte actuelle</div>
+        <div class="jackpot-value">@if (Model != null && Model.Any())
+        {
+            @foreach (var sessions in Model)
+            {
+                <div>
+                    @sessions.Jackpot
+                </div>
+            }
+        }</div>
+    </div>
+
+    <div class="grid-wrapper">
+        @for (int i = 0; i < 7; i++)
+        {
+            <div class="grid-line">
+                @for (int x = 1; x <= 7; x++)
+                {
+                    <div id="@(7 * i + x)" class="grid-button">@(7 * i + x)</div>
+                }
+            </div>
+        }
+    </div>  
+
+    <div class="button-wrapper">
+        <div class="button-flash">
+            <button></button>
+        </div>
+        <div class="button-validate">
+            <button type="submit">Valider ma grille</button>
+        </div>
+        <div class="button-reset">
+            <button type="reset"></button>
+        </div>
+    </div>
+</main>
