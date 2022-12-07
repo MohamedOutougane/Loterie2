@@ -10,9 +10,13 @@
         <div class="jackpot-value">
             @foreach (var item in Model)
             {
-                <div>
+                if (item.Jackpot == Model.Count())
+                {
+                    <div>
                         @Html.DisplayFor(modelItem => item.Jackpot)
-                </div>
+                    </div>
+                }
+                
             }
         </div>
     </div>
