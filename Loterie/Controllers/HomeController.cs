@@ -7,8 +7,6 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Loterie.Data;
 using Loterie.Models;
-using Loterie.Models;
-using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
 namespace Loterie.Controllers
