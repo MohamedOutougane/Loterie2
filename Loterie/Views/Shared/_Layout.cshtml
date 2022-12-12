@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -13,7 +14,19 @@
         <div class="header-wrapper">
             <div class="header-infos">
                 <div class="header-title"> PROCHAIN TIRAGE </div>
-                <div class="header-timer">03 : 45</div>
+                @*@{
+                    int index = 1;
+                }
+                @foreach (var item in Model)
+                {
+                    if (index == Model.Count())
+                    {
+                        <input type="hidden" id="dateNextSessions" name="dateNextSessions" value="@Html.DisplayFor(modelItem => item.Date)" />
+                    }
+                    index++;
+
+                }*@
+                <div class="header-timer" id="timerScreen"></div>
             </div>
         </div>
     </header>
@@ -50,8 +63,7 @@
                 <div class="footer-button-name"> REGLES </div>
             </div>
         </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    </footer>    <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
